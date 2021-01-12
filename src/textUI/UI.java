@@ -16,6 +16,7 @@ public abstract class UI {
 
     public abstract void processInput(int input);
 
+    // Asks user for a integer. If integer is not within limits passed as parameters to the method it asks again.
     public int getInputWithinLimits(int low, int high) {
         int input = getInteger();
         while (input < low || input > high) {
@@ -25,6 +26,7 @@ public abstract class UI {
         return input;
     }
 
+    // Asks user for a integer.
     private int getInteger() {
         Integer input = null;
         while (input == null) {

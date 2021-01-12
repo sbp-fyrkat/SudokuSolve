@@ -1,5 +1,6 @@
 package sudokulogic;
 
+// Class representing the sudokuboard. Board is represented as a 9x9 array of integers. Empty cells represented by 0's
 public class SudokuBoard {
 
     private Integer[][] sudokuBoard;
@@ -9,7 +10,10 @@ public class SudokuBoard {
         fillWithZero();
     }
 
+    // prints board to console. Represented with axis.
     public void print() {
+
+        // prints axis description for columns
         System.out.print("   ");
         for (int i = 0; i < 9; i++) {
             System.out.print(i + " ");
@@ -18,9 +22,14 @@ public class SudokuBoard {
             }
         }
         System.out.println(" ");
-        System.out.println("------------------------");
+        System.out.println("  ----------------------");
+
+        // prints board
         for (int r = 0; r < this.sudokuBoard.length; r++) {
+            // prints axis description for rows
             System.out.print(r + " |");
+
+            // prints board with separators for each 3x3 box
             for (int c = 0; c < this.sudokuBoard.length; c++) {
                 // writes value in cell
                 System.out.print(this.sudokuBoard[r][c] + " ");
@@ -33,7 +42,7 @@ public class SudokuBoard {
 
             System.out.println();
             if ((r + 1) % 3 == 0 && !(r+1 == 9)) {
-                System.out.println("------------------------");
+                System.out.println("  ----------------------");
             }
 
 
@@ -65,6 +74,7 @@ public class SudokuBoard {
         return sudokuBoard;
     }
 
+    // copies values from array passed as parameter to the array of this board.
     public void setSudokuBoard(Integer[][] newValues) {
         for (int r = 0; r < 9; r++) {
             for (int c = 0; c < 9; c++) {

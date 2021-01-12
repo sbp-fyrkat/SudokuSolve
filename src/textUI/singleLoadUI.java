@@ -32,7 +32,7 @@ public class singleLoadUI extends UI {
         while (true) {
             printMenu();
 
-            int input = super.getInputWithinLimits(0, 2);
+            int input = super.getInputWithinLimits(0, 1);
 
             if (input == 0) {
                 System.out.println("Returning to main menu\n");
@@ -49,6 +49,7 @@ public class singleLoadUI extends UI {
         }
     }
 
+    // loads a file. Ask user for file path using getFileName method. Chooses first sudoku from list if more are present.
     private void loadFile() {
         String fileName = getFileName();
         LoadSudoku load = new LoadSudoku();
@@ -59,13 +60,14 @@ public class singleLoadUI extends UI {
             return;
         }
 
-        this.loadedSudoku = load.createSudokuBoardFromFile().get(0);
+        this.loadedSudoku = load.getSudokuList().get(0);
         System.out.println("sudoku loaded from file\n");
         solverUI solve = new solverUI(super.s, this.loadedSudoku);
         solve.run();
 
     }
 
+    // Asks user for file name.
     private String getFileName() {
         boolean isFileNameValid = false;
         String fileName = ".";
@@ -77,6 +79,7 @@ public class singleLoadUI extends UI {
         return fileName;
     }
 
+    // checks if it is a valid file name.
     private boolean checkFileName(String fileName) {
         File f = new File(fileName);
         try {

@@ -21,6 +21,7 @@ public class MainMenuUI extends UI {
         }
     }
 
+    // goes to UI class of the chosen option
     public void processInput(int input) {
         if (input == 1) {
             UI randomUI = new RandomUI(super.s);
